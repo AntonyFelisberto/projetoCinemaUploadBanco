@@ -20,9 +20,9 @@ import model.Dados;
 
 public class EnviarImagem extends javax.swing.JFrame {
 
-    BufferedImage imagem,img;
+    BufferedImage imagem;//,img;
     File caminhoVideo;
-    byte[] videoBytes,audioBytes;
+    byte[] videoBytes,audioBytes,img;
     public EnviarImagem() {
         initComponents();
     }
@@ -55,6 +55,7 @@ public class EnviarImagem extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         comentario = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,7 +79,7 @@ public class EnviarImagem extends javax.swing.JFrame {
 
         jLabel3.setText("titulo");
 
-        jLabel4.setText("tipo de filme");
+        jLabel4.setText("tipo filme");
 
         btnImagem1.setText("Selecionar video");
         btnImagem1.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +88,7 @@ public class EnviarImagem extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("idade minima");
+        jLabel5.setText("idade min");
 
         jLabel6.setText("video estilizado");
 
@@ -120,18 +121,12 @@ public class EnviarImagem extends javax.swing.JFrame {
 
         jLabel10.setText("tipos de filme:M-maiores F-filme A-anime D-desenho P-aulas | comentario: comentario sobre o filme | idade:minimo de idade que precisa ter| id imagem: com que imagem tem conexao (colocar numero) | estilizado: filme que pegou de outro site ou drive ");
 
+        jLabel11.setText("CASO A IMAGEM NÃO FOR SELECIONADA ELE NÃO VAI INSERIR NENHUM DADO NA TABELA DELA (ISSO SERVE PARA FAZER A FOREIGN KEY DE SERIES E TEMPORADAS DOS ANIMES), CASO DEIXE SEM IMAGEM INSIRA A FOREIGN KEY");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(blnEnviar)
-                .addGap(269, 269, 269)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel9)
-                .addGap(162, 162, 162))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -156,12 +151,10 @@ public class EnviarImagem extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(idImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(250, 250, 250))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -173,25 +166,43 @@ public class EnviarImagem extends javax.swing.JFrame {
                                 .addGap(27, 27, 27)
                                 .addComponent(btnImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(79, 79, 79)
-                                .addComponent(btnImagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(idImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(40, 40, 40)
+                                        .addComponent(btnImagem1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(btnImagem2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(42, 42, 42))
+                        .addGap(23, 23, 23)
+                        .addComponent(btnImagem2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(193, 193, 193))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(133, 133, 133)
+                        .addComponent(blnEnviar)
+                        .addGap(269, 269, 269)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(278, 278, 278)
+                        .addComponent(jLabel9))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel11)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(4, 4, 4)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(btnImagem)
@@ -199,9 +210,26 @@ public class EnviarImagem extends javax.swing.JFrame {
                     .addComponent(btnImagem2))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel8)
+                                    .addComponent(idImagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(51, 51, 51)
+                                .addComponent(jLabel7)
+                                .addGap(30, 30, 30))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(107, 107, 107)
                         .addComponent(lblImagem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 281, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 299, Short.MAX_VALUE)
                         .addComponent(blnEnviar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -218,25 +246,8 @@ public class EnviarImagem extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(classificacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel9))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel8)
-                                    .addComponent(idImagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(51, 51, 51)
-                                .addComponent(jLabel7))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(10, 10, 10)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9)))
                 .addComponent(jLabel10)
                 .addContainerGap())
         );
@@ -245,23 +256,53 @@ public class EnviarImagem extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnImagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImagemActionPerformed
+//        MODO ANTIGO DE ARMAZENAR IMAGEM 
+//        JFileChooser selecionarImagem = new JFileChooser();     //instanciando o selecionador
+//        int res = selecionarImagem.showOpenDialog(null);        //abrindo seleção
+//
+//        if (res == JFileChooser.APPROVE_OPTION) {               //se opção correta
+//            File arquivo = selecionarImagem.getSelectedFile();  //pega arquivo
+//            File caminhoImagem = new File(arquivo.getAbsolutePath());   //pega o caminho da imagem e armazena
+//            try {
+//                img = ImageIO.read(caminhoImagem); //le o arquivo da imagem
+//                Integer largura = img.getWidth();                               //pega a largura
+//                Integer altura = img.getHeight();                               //pega a altura
+//                imagem = ManipularImagem.setImagemDimensao(arquivo.getAbsolutePath(), 250, 400); //envia pro metodo que vai definir tamanho da imagem (define o tamanho que vai ser a imagem armazenada no banco),//essa imagem aparece na tela
+//                lblImagem.setIcon(new ImageIcon(imagem));                   //cria um Icon e mostra a imagem
+//            } catch (IOException ex) {
+//                Logger.getLogger(EnviarImagem.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Voce nao selecionou nenhum arquivo.");
+//        }
+        
+        
+        
         JFileChooser selecionarImagem = new JFileChooser();     //instanciando o selecionador
         int res = selecionarImagem.showOpenDialog(null);        //abrindo seleção
-
         if (res == JFileChooser.APPROVE_OPTION) {               //se opção correta
             File arquivo = selecionarImagem.getSelectedFile();  //pega arquivo
-            File caminhoImagem = new File(arquivo.getAbsolutePath());   //pega o caminho da imagem e armazena
-            try {
-                img = ImageIO.read(caminhoImagem); //le o arquivo da imagem
-                Integer largura = img.getWidth();                               //pega a largura
-                Integer altura = img.getHeight();                               //pega a altura
-                imagem = ManipularImagem.setImagemDimensao(arquivo.getAbsolutePath(), 250, 400); //envia pro metodo que vai definir tamanho da imagem (define o tamanho que vai ser a imagem armazenada no banco),//essa imagem aparece na tela
-                lblImagem.setIcon(new ImageIcon(imagem));                   //cria um Icon e mostra a imagem
-            } catch (IOException ex) {
+            File caminhoImagem = new File(arquivo.getAbsolutePath());   //pega o caminho do audio e armazena  
+            String  caminhoDoArquivoSelecionado=caminhoImagem.toString();
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+          try {
+                FileInputStream fis = new FileInputStream(new File(caminhoDoArquivoSelecionado));
+                byte[] buf = new byte[100000000];
+                //caso o primeiro buf não funcione utilize este pois ele gera menos memoria, porem a resolução pode ficar pior
+//              byte[] buf = new byte[1024];
+                int n;
+                while (-1 != (n = fis.read(buf))){
+                    baos.write(buf, 0, n);
+                }
+                img = baos.toByteArray();
+                 JOptionPane.showMessageDialog(rootPane, img);
+            }catch (FileNotFoundException ex) {
                 Logger.getLogger(EnviarImagem.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(rootPane, "imagem não armazenado");
+            }catch (IOException ex) {
+                Logger.getLogger(EnviarImagem.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(rootPane, "imagem não armazenado");
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Voce nao selecionou nenhum arquivo.");
         }
     }//GEN-LAST:event_btnImagemActionPerformed
 
@@ -272,15 +313,27 @@ public class EnviarImagem extends javax.swing.JFrame {
          try {
              Dados pegarDados = new Dados();
              Inserir inserirDados = new Inserir();
-             //imagem
-             pegarDados.setImagem(Bytes.getImgBytes(imagem));         //converte a imagem em bytes e armazena na variavel, lembrando o tamnho da imagem vai ser o mesmo que foi definido na linha 128
+             
+             
+             //imagem - modo antigo
+//           pegarDados.setImagem(Bytes.getImgBytes(imagem));         //converte a imagem em bytes e armazena na variavel, lembrando o tamnho da imagem vai ser o mesmo que foi definido na linha 128
+             //imagem - modo novo
+             pegarDados.setImagem(img);              
              pegarDados.setTitulo(titulo.getText());
              pegarDados.setComentario(comentarios.getText());
              pegarDados.setTipo(tipo.getText());
+             if(classificacao.getText().isEmpty()){
+                 JOptionPane.showMessageDialog(rootPane, "coloque 0 ou maior na classificação indicativa para continuar");
+             }
              pegarDados.setClassificacao(Integer.parseInt(classificacao.getText()));
+             
+             
              //video
              pegarDados.setVideos(videoBytes);
-             if(idImagem.getText().isEmpty()){
+             if(img==null && idImagem.getText().isEmpty()){
+                  JOptionPane.showMessageDialog(rootPane, "ERRO INSIRA PELO MENOS A IMAGEM (PRA UM NOVO FILME OU SERIE)\n OU A ID IMAGEM FOREIGN KEY(PRA COLOCAR O FILME EM UMA IMAGEM QUE JA EXISTE)");
+                  throw new RuntimeException("ERRO INSIRA PELO MENOS A IMAGEM (PRA UM NOVO FILME OU SERIE)\n OU A ID IMAGEM FOREIGN KEY(PRA COLOCAR O FILME EM UMA IMAGEM QUE JA EXISTE)");
+             }else if(idImagem.getText().isEmpty()){
                   pegarDados.setIdImagemVideo(0);
              }else{
                  pegarDados.setIdImagemVideo(Integer.parseInt(idImagem.getText()));
@@ -304,17 +357,19 @@ public class EnviarImagem extends javax.swing.JFrame {
     }//GEN-LAST:event_blnEnviarActionPerformed
 
     private void btnImagem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImagem1ActionPerformed
-        //ATENÇÃO PARA ARMAZENAR UM VIDEO MUITO GRANDE COMO DE UM GIGA É EXIGIDA MEMÓRIA NO COMPUTADOR SENÃO ACONTECERA O ERRO java.lang.OutOfMemoryError: Java heap space
-        JFileChooser selecionarImagem = new JFileChooser();     //instanciando o selecionador
-        int res = selecionarImagem.showOpenDialog(null);        //abrindo seleção
+        //ATENÇÃO PARA ARMAZENAR UM VIDEO MUITO GRANDE COMO DE UM GIGA É EXIGIDA MEMÓRIA NO COMPUTADOR SENÃO ACONTECERA O ERRO java.lang.OutOfMemoryError: Java heap space, ISSO PODE SER UM ERRO DA MAQUINA E NAO CODIGO
+        JFileChooser selecionarVideo = new JFileChooser();     //instanciando o selecionador
+        int res = selecionarVideo.showOpenDialog(null);        //abrindo seleção
         if (res == JFileChooser.APPROVE_OPTION) {               //se opção correta
-            File arquivo = selecionarImagem.getSelectedFile();  //pega arquivo
+            File arquivo = selecionarVideo.getSelectedFile();  //pega arquivo
             File caminhoImagem = new File(arquivo.getAbsolutePath());   //pega o caminho do video e armazena  
             String  caminhoDoArquivoSelecionado=caminhoImagem.toString();
           ByteArrayOutputStream baos = new ByteArrayOutputStream();
           try {
                 FileInputStream fis = new FileInputStream(new File(caminhoDoArquivoSelecionado));
-                byte[] buf = new byte[1024];
+                byte[] buf = new byte[100000000];
+                //caso o primeiro buf não funcione utilize este pois ele gera menos memoria, porem a resolução pode ficar pior
+//              byte[] buf = new byte[1024];
                 int n;
                 while (-1 != (n = fis.read(buf))){
                     baos.write(buf, 0, n);
@@ -336,16 +391,19 @@ public class EnviarImagem extends javax.swing.JFrame {
     }//GEN-LAST:event_idImagemActionPerformed
 
     private void btnImagem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImagem2ActionPerformed
-        JFileChooser selecionarImagem = new JFileChooser();     //instanciando o selecionador
-        int res = selecionarImagem.showOpenDialog(null);        //abrindo seleção
+        //ATENÇÃO PARA ARMAZENAR UM AUDIO MUITO GRANDE COMO DE UM GIGA É EXIGIDA MEMÓRIA NO COMPUTADOR SENÃO ACONTECERA O ERRO java.lang.OutOfMemoryError: Java heap space, ISSO PODE SER UM ERRO DA MAQUINA E NAO CODIGO
+        JFileChooser selecionarAudio = new JFileChooser();     //instanciando o selecionador
+        int res = selecionarAudio.showOpenDialog(null);        //abrindo seleção
         if (res == JFileChooser.APPROVE_OPTION) {               //se opção correta
-            File arquivo = selecionarImagem.getSelectedFile();  //pega arquivo
+            File arquivo = selecionarAudio.getSelectedFile();  //pega arquivo
             File caminhoImagem = new File(arquivo.getAbsolutePath());   //pega o caminho do audio e armazena  
             String  caminhoDoArquivoSelecionado=caminhoImagem.toString();
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
           try {
                 FileInputStream fis = new FileInputStream(new File(caminhoDoArquivoSelecionado));
-                byte[] buf = new byte[1024];
+                byte[] buf = new byte[100000000];
+                //caso o primeiro buf não funcione utilize este pois ele gera menos memoria, porem a resolução pode ficar pior
+//              byte[] buf = new byte[1024];
                 int n;
                 while (-1 != (n = fis.read(buf))){
                     baos.write(buf, 0, n);
@@ -375,6 +433,7 @@ public class EnviarImagem extends javax.swing.JFrame {
     private javax.swing.JTextField idImagem;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
