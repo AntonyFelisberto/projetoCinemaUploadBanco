@@ -30,19 +30,21 @@ public class Inserir {
             realizarQuery.setString(2, dados.getcomentarioDoAudio());
             realizarQuery.executeUpdate();
           if(dados.getIdImagemVideo()==0){
-            String sqlVideos="INSERT INTO videos (video,videoEstilizado,idImagem) VALUES (?,?,(SELECT MAX(idImagem) FROM imagens))";
+            String sqlVideos="INSERT INTO videos (video,videoEstilizado,tipoConteudo,idImagem,titulo) VALUES (?,?,'N',(SELECT MAX(idImagem) FROM imagens),?)";
             realizarQuery=conectar.prepareStatement(sqlVideos);
             realizarQuery.setBytes(1,dados.getVideos());
             realizarQuery.setString(2,dados.getUrl());
+            realizarQuery.setString(3,dados.getTituloVideo());
             realizarQuery.execute();
             realizarQuery.close();
             retorno = true;
           }else{
-            String sqlVideos="INSERT INTO videos (video,videoEstilizado,idImagem) VALUES (?,?,?)";
+            String sqlVideos="INSERT INTO videos (video,videoEstilizado,tipoConteudo,idImagem,titulo) VALUES (?,?,'N',?,?)";
             realizarQuery=conectar.prepareStatement(sqlVideos);
             realizarQuery.setBytes(1,dados.getVideos());
             realizarQuery.setString(2,dados.getUrl());
             realizarQuery.setInt(3,dados.getIdImagemVideo());
+            realizarQuery.setString(4,dados.getTituloVideo());
             realizarQuery.execute();
             realizarQuery.close();
             retorno = true;

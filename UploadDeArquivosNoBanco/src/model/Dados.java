@@ -6,7 +6,7 @@ public class Dados {
     private byte[] imagem;  //define o numero de bytes como vazio para que o proprio sistema insira o tamanho
     private byte[] videos;  //define o numero de bytes como vazio para que o proprio sistema insira o tamanho
     private byte[] audio;  //define o numero de bytes como vazio para que o proprio sistema insira o tamanho
-    private String comentario,titulo,tipo,url,comentarioDoAudio;
+    private String comentario,titulo,tipo,url,comentarioDoAudio,tituloVideo;
 
     public byte[] getAudio() {
         return audio;
@@ -96,6 +96,23 @@ public class Dados {
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
+
+    public String getComentarioDoAudio() {
+        return comentarioDoAudio;
+    }
+
+    public void setComentarioDoAudio(String comentarioDoAudio) {
+        this.comentarioDoAudio = comentarioDoAudio;
+    }
+
+    public String getTituloVideo() {
+        return tituloVideo;
+    }
+
+    public void setTituloVideo(String tituloVideo) {
+        this.tituloVideo = tituloVideo;
+    }
+    
     
     
 }
