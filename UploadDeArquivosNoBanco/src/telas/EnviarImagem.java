@@ -381,7 +381,7 @@ public class EnviarImagem extends javax.swing.JFrame {
     }//GEN-LAST:event_blnEnviarActionPerformed
 
     private void btnImagem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImagem1ActionPerformed
-        //ATENÇÃO PARA ARMAZENAR UM VIDEO MUITO GRANDE COMO DE UM GIGA É EXIGIDA MEMÓRIA NO COMPUTADOR SENÃO ACONTECERA O ERRO java.lang.OutOfMemoryError: Java heap space, ISSO PODE SER UM ERRO DA MAQUINA E NAO CODIGO
+        //ATENÇÃO PARA ARMAZENAR UM VIDEO MUITO GRANDE COMO DE UM GIGA É EXIGIDA MEMÓRIA NO COMPUTADOR SENÃO ACONTECERA O ERRO java.lang.OutOfMemoryError: Java heap space, ISSO PODE SER UM ERRO DA MAQUINA E NAO CODIGO // existem videos que mostram como corrigi lo eis um : https://www.youtube.com/watch?v=vmI8rdV9EOo
         JFileChooser selecionarVideo = new JFileChooser();     //instanciando o selecionador
         int res = selecionarVideo.showOpenDialog(null);        //abrindo seleção
         if (res == JFileChooser.APPROVE_OPTION) {               //se opção correta
