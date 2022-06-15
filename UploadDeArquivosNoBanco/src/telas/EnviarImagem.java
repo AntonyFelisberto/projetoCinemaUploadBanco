@@ -408,6 +408,7 @@ public class EnviarImagem extends javax.swing.JFrame {
                  JOptionPane.showMessageDialog(rootPane, "dados armazenados com sucesso");
                  img=null;
                  videoBytes=null;
+                 campoEstilizado.setText("");
              }
              else{
                 JOptionPane.showMessageDialog(rootPane, "dados não armazenados");
